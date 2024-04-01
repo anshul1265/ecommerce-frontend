@@ -1,4 +1,3 @@
-import React from "react";
 import { Column } from "react-table";
 import TableHOC from "./TableHOC.tsx";
 
@@ -33,18 +32,13 @@ const columns: Column<DataType>[] = [
   },
 ];
 
-const DashboardTable: React.FC<{ data: DataType[] }> = ({ data }) => {
-  return (
-    <div className="transaction-box">
-      <h2>Top Transactions</h2>
-      <TableHOC<DataType>
-        columns={columns}
-        data={data}
-        containerClassname="transaction-table"
-        showPagination={true} // Assuming you want pagination
-      />
-    </div>
-  );
+const DashboardTable = ({ data = [] }: { data: DataType[] }) => {
+  return TableHOC<DataType>(
+    columns,
+    data,
+    "transaction-box",
+    "Top Transaction"
+  )();
 };
 
 export default DashboardTable;
