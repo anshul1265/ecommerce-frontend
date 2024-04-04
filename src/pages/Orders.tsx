@@ -53,7 +53,7 @@ const Orders = () => {
 
   const { isLoading, isError, data, error } = useMyOrdersQuery(user?._id as string);
 
-  const table = TableHOC<DataType>(column, rows, "dashboard-product-box", rows.length > 6)();
+  const table = TableHOC<DataType>(column, rows, "dashboard-product-box", "Orders", rows.length > 6)();
 
   if (isError) {
     const err = error as CustomError;

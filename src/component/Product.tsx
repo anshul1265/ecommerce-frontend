@@ -12,7 +12,6 @@ type productProps = {
 };
 
 const Product = ({ productId, price, name, photo, stock, handler }: productProps) => {
-  console.log(stock + productId);
   return (
     <div className="product-card">
 

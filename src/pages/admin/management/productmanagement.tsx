@@ -1,17 +1,16 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
-import AdminSidebar from "../../../component/admin/AdminSidebar";
 import { useSelector } from "react-redux";
-import { UserReducerInitialState } from "../../../types/reducer-types";
-import { useDeleteProductMutation, useProductDetailsQuery, useUpdateProductMutation } from "../../../redux/api/productApi";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
-import { server } from "../../../redux/store";
 import { Skeleton } from "../../../component/Loader";
+import AdminSidebar from "../../../component/admin/AdminSidebar";
+import { useDeleteProductMutation, useProductDetailsQuery, useUpdateProductMutation } from "../../../redux/api/productApi";
+import { RootState, server } from "../../../redux/store";
 import { responseToast } from "../../../utils/features";
 
 const Productmanagement = () => {
 
-  const { user } = useSelector((state: { userReducer: UserReducerInitialState }) => state.userReducer);
+  const { user } = useSelector((state: RootState) => state.userReducer);
 
   const params = useParams();
   const navigate = useNavigate();

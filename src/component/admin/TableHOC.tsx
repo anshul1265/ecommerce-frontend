@@ -42,6 +42,7 @@ function TableHOC<T extends NonNullable<unknown>>(
 
     return (
       <div className={containerClassname}>
+        <h2 className="heading">{heading}</h2>
 
         <table className="table" {...getTableProps()}>
           <thead>

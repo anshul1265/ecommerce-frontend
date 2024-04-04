@@ -1,13 +1,13 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import AdminSidebar from "../../../component/admin/AdminSidebar";
 import { useSelector } from "react-redux";
-import { UserReducerInitialState } from "../../../types/reducer-types";
 import { useCreateProductMutation } from "../../../redux/api/productApi";
 import { responseToast } from "../../../utils/features";
 import { useNavigate } from "react-router-dom";
+import { RootState } from "../../../redux/store";
 
 const NewProduct = () => {
-  const { user } = useSelector((state: { userReducer: UserReducerInitialState }) => state.userReducer);
+  const { user } = useSelector((state: RootState) => state.userReducer);
 
   const [name, setName] = useState<string>("");
   const [category, setCategory] = useState<string>("");
@@ -38,9 +38,7 @@ const NewProduct = () => {
 
   const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!price || !name || stock < 0 || !photo || !category) {
-      return;
-    }
+    if (!price || !name || stock < 0 || !photo || !category) return;
 
     const formData = new FormData();
     formData.set("name", name);
