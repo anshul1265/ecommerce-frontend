@@ -64,7 +64,7 @@ const Shipping = () => {
           <option value={"USA"}>USA</option>
           <option value={"UK"}>UK</option>
         </select>
-        <input required type="number" placeholder="Pincode" name="pincode" value={shippingInfo.pinCode} onChange={changeHandler} />
+        <input required type="text" placeholder="Pincode" name="pincode" value={shippingInfo.pinCode} onChange={changeHandler} />
         <button type="submit">Pay Now</button>
       </form>
 
